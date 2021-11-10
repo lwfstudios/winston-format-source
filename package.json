@@ -1,0 +1,25 @@
+{
+  "name": "winston-format-source",
+  "version": "1.0.0",
+  "description": "A simple formatter to add the source of the log message (function/method and class if available, file and line as fallback) to all messages.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lwfstudios/winston-format-source.git"
+  },
+  "author": "David Leinbach <dleinbach@lwfstudios.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lwfstudios/winston-format-source/issues"
+  },
+  "homepage": "https://github.com/lwfstudios/winston-format-source#readme",
+  "dependencies": {
+    "logform": "^2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.2.0"
+  }
+}
