@@ -6,15 +6,12 @@ const { format } = require('logform');
 // Path Support
 const path = require('path');
 
-// Items in Stack Trace to Skip
-const SKIP_IN_STACKTRACE = [
-	'Format.transform',
-	/^DerivedLogger\./
-];
-
+/*
+ * function filterCallSite (callSite)
+ * Returns false if callSite should be filtered out (as it is part of Winston internal libraries), or true otherwise
+ */
 function filterCallSite(callSite) {
 	let typeName = callSite.getTypeName();
-	let functionName = callSite.getFunctionName();
 	let methodName = callSite.getMethodName();
 	let fileName = callSite.getFileName() || '<Unknown File>';
 	return !(
@@ -27,12 +24,16 @@ function filterCallSite(callSite) {
 	);
 }
 
+/*
+ * function prepareStackTraceAsStructured (error, structuredStackTrace)
+ * Returns just the structured stack trace.  This is used to capture the structured stack trace rather than the text version
+ */
 function prepareStackTraceAsStructured(error, structuredStackTrace) {
 	return structuredStackTrace;
 }
 
 /*
- * function FileAndFunctionFormat (info)
+ * function format (info)
  * Returns a new instance of the FileAndFunctionFormat Format which prepends the message with the file and function
  * in the info.
  *
